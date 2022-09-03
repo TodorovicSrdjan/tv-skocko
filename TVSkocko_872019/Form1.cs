@@ -21,7 +21,7 @@ namespace TVSkocko_872019
         private void btnStart_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var gameForm = new Form1();
+            var gameForm = new Game(this);
             gameForm.Show();
         }
 

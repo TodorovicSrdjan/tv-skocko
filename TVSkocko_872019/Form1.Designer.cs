@@ -40,6 +40,7 @@
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(144)))));
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
             resources.ApplyResources(this.btnStart, "btnStart");
             this.btnStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
             this.btnStart.Name = "btnStart";
@@ -52,7 +53,7 @@
             this.lblNaslov.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             resources.ApplyResources(this.lblNaslov, "lblNaslov");
             this.lblNaslov.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(104)))), ((int)(((byte)(35)))));
-            this.lblNaslov.Image = global::TVSkocko_872019.Properties.Resources.naslov_transparent;
+            this.lblNaslov.Image = global::TVSkocko_872019.Properties.Resources.title_transparent;
             this.lblNaslov.Name = "lblNaslov";
             // 
             // btnRankList
@@ -60,6 +61,7 @@
             this.btnRankList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
             this.btnRankList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRankList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(144)))));
+            this.btnRankList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
             resources.ApplyResources(this.btnRankList, "btnRankList");
             this.btnRankList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
             this.btnRankList.Name = "btnRankList";
@@ -70,6 +72,7 @@
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(144)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
             resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
             this.btnExit.Name = "btnExit";
@@ -81,7 +84,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(152)))), ((int)(((byte)(129)))));
-            this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.main522;
+            this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.main_menu_522;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRankList);
             this.Controls.Add(this.lblNaslov);
