@@ -12,7 +12,7 @@ using static TVSkocko_872019.SymbolValue;
 
 namespace TVSkocko_872019
 {
-    public partial class Game : Form
+    public partial class Game : FormWithBackgroundMusic
     {
         private readonly Form parentForm;
         private readonly int ncols = 4;

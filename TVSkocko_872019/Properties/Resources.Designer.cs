@@ -22,7 +22,7 @@ namespace TVSkocko_872019.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TVSkocko_872019.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TVSkocko_872019.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace TVSkocko_872019.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background {
+        public static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -71,9 +71,27 @@ namespace TVSkocko_872019.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream background_song {
+            get {
+                return ResourceManager.GetStream("background_song", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erik Satie - Gymnopaedia 1 (performed by Robin Alciatore).
+        /// </summary>
+        public static string background_song_info {
+            get {
+                return ResourceManager.GetString("background_song_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clover {
+        public static System.Drawing.Bitmap clover {
             get {
                 object obj = ResourceManager.GetObject("clover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,9 +101,9 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap empty_left {
+        public static System.Drawing.Bitmap empty_left {
             get {
-                object obj = ResourceManager.GetObject("empty-left", resourceCulture);
+                object obj = ResourceManager.GetObject("empty_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +111,9 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap empty_right {
+        public static System.Drawing.Bitmap empty_right {
             get {
-                object obj = ResourceManager.GetObject("empty-right", resourceCulture);
+                object obj = ResourceManager.GetObject("empty_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,7 +121,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap heart {
+        public static System.Drawing.Bitmap heart {
             get {
                 object obj = ResourceManager.GetObject("heart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +131,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap jumper {
+        public static System.Drawing.Bitmap jumper {
             get {
                 object obj = ResourceManager.GetObject("jumper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,9 +141,9 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap main_menu {
+        public static System.Drawing.Bitmap main_menu {
             get {
-                object obj = ResourceManager.GetObject("main-menu", resourceCulture);
+                object obj = ResourceManager.GetObject("main_menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +151,9 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap main_menu_522 {
+        public static System.Drawing.Bitmap main_menu_522 {
             get {
-                object obj = ResourceManager.GetObject("main-menu-522", resourceCulture);
+                object obj = ResourceManager.GetObject("main_menu_522", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,7 +161,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap match {
+        public static System.Drawing.Bitmap match {
             get {
                 object obj = ResourceManager.GetObject("match", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +171,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pike {
+        public static System.Drawing.Bitmap pike {
             get {
                 object obj = ResourceManager.GetObject("pike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,9 +181,9 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap semi_match {
+        public static System.Drawing.Bitmap semi_match {
             get {
-                object obj = ResourceManager.GetObject("semi-match", resourceCulture);
+                object obj = ResourceManager.GetObject("semi_match", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,7 +191,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap star {
+        public static System.Drawing.Bitmap star {
             get {
                 object obj = ResourceManager.GetObject("star", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +201,7 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tile {
+        public static System.Drawing.Bitmap tile {
             get {
                 object obj = ResourceManager.GetObject("tile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,10 +211,19 @@ namespace TVSkocko_872019.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap title_transparent {
+        public static System.Drawing.Bitmap title_transparent {
             get {
-                object obj = ResourceManager.GetObject("title-transparent", resourceCulture);
+                object obj = ResourceManager.GetObject("title_transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skočko.
+        /// </summary>
+        public static string window_title {
+            get {
+                return ResourceManager.GetString("window_title", resourceCulture);
             }
         }
     }

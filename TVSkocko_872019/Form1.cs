@@ -5,17 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
-    public partial class Form1 : Form
+    public partial class Form1 : FormWithBackgroundMusic
     {
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         private void btnStart_Click(object sender, EventArgs e)
