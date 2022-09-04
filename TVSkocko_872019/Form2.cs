@@ -123,57 +123,5 @@ namespace TVSkocko_872019
         {
             InitializeGame();
         }
-        
-        private void ToggleClickabilityOfComponents()
-        {
-            this.gridSymbols.Enabled = !this.gridSymbols.Enabled;
-            this.btnNewGame.Enabled = !this.btnNewGame.Enabled;
-            this.btnUndo.Enabled = !this.btnUndo.Enabled;
-            this.btnRedo.Enabled = !this.btnRedo.Enabled;
-        }
-
-        public void InitializeLeftGrid()
-        {
-            this.gridLeft.BackgroundImage = global::TVSkocko_872019.Properties.Resources.empty_left;
-            this.gridLeft.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.gridLeft.ColumnCount = 4;
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.gridLeft.Location = new System.Drawing.Point(50, 100);
-            this.gridLeft.Name = "gridLeft";
-            this.gridLeft.RowCount = 6;
-            this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.Size = new System.Drawing.Size(173, 259);
-            this.gridLeft.TabIndex = 0;
-        }
-
-        public void InitializeRightGrid()
-        {
-            this.gridRight.BackgroundImage = global::TVSkocko_872019.Properties.Resources.empty_right;
-            this.gridRight.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.gridRight.ColumnCount = 4;
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.gridRight.Location = new System.Drawing.Point(307, 100);
-            this.gridRight.Name = "gridRight";
-            this.gridRight.RowCount = 6;
-            this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.Size = new System.Drawing.Size(173, 259);
-            this.gridRight.TabIndex = 1;
-        }
     }
 }
