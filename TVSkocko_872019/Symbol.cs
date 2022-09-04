@@ -18,7 +18,7 @@ namespace TVSkocko_872019
         Tile
     };
 
-    internal sealed class Symbol
+    public sealed class Symbol
     {
         public SymbolValue Value { get; private set; }
 
@@ -37,17 +37,17 @@ namespace TVSkocko_872019
             switch (symbol.Value)
             {
                 case SymbolValue.Clover:
-                    return Resources.clover;
+                    return Resources.Clover;
                 case SymbolValue.Heart:
-                    return Resources.heart;
+                    return Resources.Heart;
                 case SymbolValue.Jumper:
-                    return Resources.jumper;
+                    return Resources.Jumper;
                 case SymbolValue.Pike:
-                    return Resources.pike;
+                    return Resources.Pike;
                 case SymbolValue.Star:
-                    return Resources.star;
+                    return Resources.Star;
                 case SymbolValue.Tile:
-                    return Resources.tile;
+                    return Resources.Tile;
                 default:
                     throw new Exception("Dati simbol ne postoji");
             }

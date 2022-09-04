@@ -16,8 +16,8 @@ namespace TVSkocko_872019
 
         public FormWithBackgroundMusic()
         {
-            songInfoInWindowTitle = $"{Resources.background_song_info}    ";
-            this.Text = $"{Resources.window_title}: {songInfoInWindowTitle}";
+            songInfoInWindowTitle = $"{Resources.Background}    ";
+            this.Text = $"{Resources.WindowTitle}: {songInfoInWindowTitle}";
             InitializeTimer();
         }
 
@@ -32,7 +32,7 @@ namespace TVSkocko_872019
             }
 
             songInfoInWindowTitle = newTxt;
-            this.Text = $"{Resources.window_title}: {songInfoInWindowTitle}";
+            this.Text = $"{Resources.WindowTitle}: {songInfoInWindowTitle}";
         }
 
         public void InitializeTimer()

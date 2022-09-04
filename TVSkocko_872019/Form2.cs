@@ -17,8 +17,8 @@ namespace TVSkocko_872019
         private readonly Form parentForm;
         private readonly int ncols = 4;
         private readonly int nrows = 6;
-        private readonly Bitmap EMPTY_LEFT = Resources.empty_left;
-        private readonly Bitmap EMPTY_RIGHT = Resources.empty_right;
+        private readonly Bitmap EMPTY_LEFT = Resources.EmptyLeft;
+        private readonly Bitmap EMPTY_RIGHT = Resources.EmptyRight;
         private readonly Symbol[] SYMBOLS = Symbol.Values();
 
         private int currentRow;
@@ -81,8 +81,7 @@ namespace TVSkocko_872019
 
         private void Game_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Da li želite da napustite trenutnu igru?", "Izlazak",
-               MessageBoxButtons.YesNo) == DialogResult.No)
+            if (DialogResult.No == MessageBox.Show(Resources.GameExitWinMsg, Resources.GameExitWinTitle, MessageBoxButtons.YesNo))
             {
                 e.Cancel = true;
             }   
@@ -94,8 +93,8 @@ namespace TVSkocko_872019
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-
-        }
+            
+            }
 
         internal void MakeMove(Symbol symbol)
         {
@@ -110,7 +109,7 @@ namespace TVSkocko_872019
             {
                 GridCell gc = (GridCell) this.gridLeft.GetControlFromPosition(currentColumn, currentRow);
 
-                Console.WriteLine($"Cell: {gc.Background}");
+                
 
                 gc.Background = symbol;
                 gc.Update();

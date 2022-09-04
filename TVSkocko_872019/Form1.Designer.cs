@@ -54,7 +54,7 @@
             this.lblNaslov.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             resources.ApplyResources(this.lblNaslov, "lblNaslov");
             this.lblNaslov.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(104)))), ((int)(((byte)(35)))));
-            this.lblNaslov.Image = global::TVSkocko_872019.Properties.Resources.title_transparent;
+            this.lblNaslov.Image = global::TVSkocko_872019.Properties.Resources.TitleTransparent;
             this.lblNaslov.Name = "lblNaslov";
             // 
             // btnRankList
@@ -85,7 +85,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(152)))), ((int)(((byte)(129)))));
-            this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.main_menu_522;
+            this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.MainMenu522;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRankList);
             this.Controls.Add(this.lblNaslov);

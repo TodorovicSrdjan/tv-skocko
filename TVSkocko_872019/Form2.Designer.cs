@@ -92,7 +92,7 @@ namespace TVSkocko_872019
             // 
             // gridLeft
             // 
-            this.gridLeft.BackgroundImage = global::TVSkocko_872019.Properties.Resources.empty_left;
+            this.gridLeft.BackgroundImage = global::TVSkocko_872019.Properties.Resources.EmptyLeft;
             this.gridLeft.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.gridLeft.ColumnCount = 4;
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -113,7 +113,7 @@ namespace TVSkocko_872019
             // 
             // gridRight
             //
-            this.gridRight.BackgroundImage = global::TVSkocko_872019.Properties.Resources.empty_right;
+            this.gridRight.BackgroundImage = global::TVSkocko_872019.Properties.Resources.EmptyRight;
             this.gridRight.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.gridRight.ColumnCount = 4;
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -153,7 +153,7 @@ namespace TVSkocko_872019
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.background;
+            this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(523, 493);
             this.Controls.Add(this.btnNewGame);
@@ -175,7 +175,7 @@ namespace TVSkocko_872019
 
         #endregion
 
-        
+
 
         private System.Windows.Forms.TableLayoutPanel gridLeft;
         private System.Windows.Forms.TableLayoutPanel gridRight;
