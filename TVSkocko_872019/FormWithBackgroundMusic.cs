@@ -12,7 +12,7 @@ namespace TVSkocko_872019
     public class FormWithBackgroundMusic : Form
     {
         protected String songInfoInWindowTitle;
-        protected Timer timer1;
+        protected Timer slidingTextTimer;
 
         public FormWithBackgroundMusic()
         {
@@ -37,10 +37,10 @@ namespace TVSkocko_872019
 
         public void InitializeTimer()
         {
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 500; // in miliseconds
-            timer1.Start();
+            slidingTextTimer = new Timer();
+            slidingTextTimer.Tick += new EventHandler(timer1_Tick);
+            slidingTextTimer.Interval = 500; // in miliseconds
+            slidingTextTimer.Start();
         }
     }
 }
