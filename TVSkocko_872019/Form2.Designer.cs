@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -196,7 +196,7 @@ namespace TVSkocko_872019
             this.gridSolution.Name = "gridSolution";
             this.gridSolution.Padding = new System.Windows.Forms.Padding(1);
             this.gridSolution.RowCount = 1;
-            this.gridSolution.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.gridSolution.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridSolution.Size = new System.Drawing.Size(175, 46);
             this.gridSolution.TabIndex = 1;
             this.gridSolution.Visible = false;
