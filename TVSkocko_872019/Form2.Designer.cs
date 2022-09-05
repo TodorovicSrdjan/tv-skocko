@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -195,7 +195,7 @@ namespace TVSkocko_872019
             this.MaximizeBox = false;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Skočko";
+            this.Text = "Skočko:  by Robin Alciatore)    Erik Satie - Gymnopaedia 1 (performed";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.ResumeLayout(false);
 

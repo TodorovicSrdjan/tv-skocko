@@ -21,6 +21,10 @@ namespace TVSkocko_872019
         private readonly Bitmap EMPTY_LEFT = Resources.EmptyLeft;
         private readonly Bitmap EMPTY_RIGHT = Resources.EmptyRight;
         private readonly Symbol[] SYMBOLS = Symbol.Values();
+        private Func<GuessResultValue, bool> checkIfSolutionIsFound = delegate (GuessResultValue guessResultValue)
+        {
+            return guessResultValue.Equals(GuessResultValue.MATCH);
+        };
 
         private int currentRow;
         private int currentColumn;
@@ -318,6 +322,14 @@ namespace TVSkocko_872019
 
             history.Clear();
             UpdateStateComponents();
+
+            if (ncols == guessResult.Count(checkIfSolutionIsFound))
+            {
+                MessageBox.Show(Resources.GameSuccessMsg, Resources.GameSuccessTitle, MessageBoxButtons.OK);
+                this.gridSymbols.Visible = false;
+                this.btnUndo.Visible = false;
+                this.btnRedo.Visible = false;
+            }
 
             // Check if player has used all available guess attempts
             if (currentRow == nrows)

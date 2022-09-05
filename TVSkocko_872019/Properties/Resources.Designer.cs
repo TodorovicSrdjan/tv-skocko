@@ -155,6 +155,24 @@ namespace TVSkocko_872019.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pronašli ste rešenje!.
+        /// </summary>
+        public static string GameSuccessMsg {
+            get {
+                return ResourceManager.GetString("GameSuccessMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pobeda.
+        /// </summary>
+        public static string GameSuccessTitle {
+            get {
+                return ResourceManager.GetString("GameSuccessTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap Heart {

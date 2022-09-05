@@ -182,4 +182,10 @@
   <data name="EndGameMaxAttemptsTitle" xml:space="preserve">
     <value>Poraz</value>
   </data>
+  <data name="GameSuccessMsg" xml:space="preserve">
+    <value>Pronašli ste rešenje!</value>
+  </data>
+  <data name="GameSuccessTitle" xml:space="preserve">
+    <value>Pobeda</value>
+  </data>
 </root>
