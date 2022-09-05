@@ -34,5 +34,16 @@ namespace TVSkocko_872019.Properties {
                 this["PlayerName"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\tvskocko;Initial Catalog=master;Integrated Security=True;Co" +
+            "nnect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=Re" +
+            "adWrite;MultiSubnetFailover=False")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+        }
     }
 }

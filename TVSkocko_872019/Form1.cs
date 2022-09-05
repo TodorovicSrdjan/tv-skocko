@@ -26,6 +26,13 @@ namespace TVSkocko_872019
             inputForm.Show();
         }
 
+        private void btnRankList_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form rankForm = new frmRank(this);
+            rankForm.Show();
+        }
+
         public void StartTheGame()
         {
             var gameForm = new Game(this);

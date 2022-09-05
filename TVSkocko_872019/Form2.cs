@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,11 +21,16 @@ namespace TVSkocko_872019
         private readonly Bitmap EMPTY_LEFT = Resources.EmptyLeft;
         private readonly Bitmap EMPTY_RIGHT = Resources.EmptyRight;
         private readonly Symbol[] SYMBOLS = Symbol.Values();
+        private readonly DatabaseUtil databaseUtil = new DatabaseUtil();
+
         private Func<GuessResultValue, bool> checkIfSolutionIsFound = delegate (GuessResultValue guessResultValue)
         {
             return guessResultValue.Equals(GuessResultValue.MATCH);
         };
 
+
+        private bool isGameOver;
+        private bool wonGame;
         private int currentRow;
         private int currentColumn;
         private int gameDurationInSeconds;
@@ -56,6 +61,7 @@ namespace TVSkocko_872019
 
         public void InitializeGame()
         {
+            isGameOver = false;
             gameDurationInSeconds = 0;
             this.lblElapsedTime.Text = gameDurationInSeconds.ToString();
             gameDurationTimer.Stop();
@@ -342,21 +348,35 @@ namespace TVSkocko_872019
             // Check if player guessed correctly
             if (ncols == guessResult.Count(checkIfSolutionIsFound))
             {
+                gameDurationTimer.Stop();
+
+                isGameOver = true;
+                wonGame = true;
+
                 MessageBox.Show(Resources.GameSuccessMsg, Resources.GameSuccessTitle, MessageBoxButtons.OK);
+
                 this.gridSymbols.Visible = false;
                 this.btnShowSolution.Visible = false;
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
-                gameDurationTimer.Stop();
+
+                databaseUtil.SavePlayerScore(CreatePlayerScore());
             }
             // Check if player has used all available guess attempts
             else if (currentRow == nrows)
             {
+                gameDurationTimer.Stop();
+
+                isGameOver = true;
+                wonGame = false;
+
                 MessageBox.Show(Resources.EndGameMaxAttemptsMsg, Resources.EndGameMaxAttemptsTitle, MessageBoxButtons.OK);
+
                 this.gridSymbols.Visible = false;
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
-                gameDurationTimer.Stop();
+
+                databaseUtil.SavePlayerScore(CreatePlayerScore());
             }
         }
 
@@ -368,12 +388,18 @@ namespace TVSkocko_872019
         private void btnShowSolution_Click(object sender, EventArgs e)
         {
             gameDurationTimer.Stop();
+
+            isGameOver = true;
+            wonGame = false;
+
             this.btnShowSolution.Visible = false;
             this.gridSymbols.Visible = false;
             this.btnUndo.Visible = false;
             this.btnRedo.Visible = false;
             this.gridSolution.Visible = true;
             this.lblSolution.Visible = true;
+
+            databaseUtil.SavePlayerScore(CreatePlayerScore());
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
@@ -391,6 +417,11 @@ namespace TVSkocko_872019
         {
             gameDurationInSeconds++;
             this.lblElapsedTime.Text = gameDurationInSeconds.ToString();
+        }
+
+        private PlayerScore CreatePlayerScore()
+        {
+            return new PlayerScore(Settings.Default.PlayerName, currentRow-1, gameDurationInSeconds, wonGame);
         }
     }
 }

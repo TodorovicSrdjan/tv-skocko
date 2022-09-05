@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnStart = new System.Windows.Forms.Button();
             this.lblNaslov = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.btnRankList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
             this.btnRankList.Name = "btnRankList";
             this.btnRankList.UseVisualStyleBackColor = false;
+            this.btnRankList.Click += new System.EventHandler(this.btnRankList_Click);
             // 
             // btnExit
             // 
