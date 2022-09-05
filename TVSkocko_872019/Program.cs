@@ -17,6 +17,8 @@ namespace TVSkocko_872019
         [STAThread]
         static void Main()
         {
+            Settings.Default.GameSavePath = String.Format(@"{0}\savefile.xml", Application.StartupPath);
+
             // Start music in the background
             SoundPlayer player = new SoundPlayer(Resources.background_song);
             player.PlayLooping();

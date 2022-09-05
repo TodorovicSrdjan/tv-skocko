@@ -1,12 +1,15 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 using TVSkocko_872019.Properties;
 using static TVSkocko_872019.SymbolValue;
 
@@ -56,7 +59,14 @@ namespace TVSkocko_872019
                 this.gridSymbols.Controls.Add(b);
             }
 
-            InitializeGame();
+            if (File.Exists(Settings.Default.GameSavePath))
+            {
+                LoadGame();
+            }
+            else
+            {
+                InitializeGame();
+            }    
         }
 
         public void InitializeGame()
@@ -281,11 +291,11 @@ namespace TVSkocko_872019
         }
         #endregion
 
-        private void UpdateRightGrid(GuessResultValue[] guessResultValues)
+        private void UpdateRightGrid(GuessResultValue[] guessResultValues, int row)
         {
             for (int i = 0; i < ncols; i++)
             {
-                var gc = (GridCell)this.gridRight.GetControlFromPosition(i, currentRow);
+                var gc = (GridCell)this.gridRight.GetControlFromPosition(i, row);
 
                 switch (guessResultValues[i])
                 {
@@ -339,7 +349,7 @@ namespace TVSkocko_872019
             // Check player's guess
             var guessResult = CheckGuess(guess);
 
-            UpdateRightGrid(guessResult);
+            UpdateRightGrid(guessResult, currentRow);
 
             currentColumn = 0;
             currentRow++;
@@ -429,6 +439,159 @@ namespace TVSkocko_872019
         private PlayerScore CreatePlayerScore()
         {
             return new PlayerScore(Settings.Default.PlayerName, currentRow-1, gameDurationInSeconds, wonGame);
+        }
+
+        private void SaveGame()
+        {
+            GameSave gs = new GameSave();
+            gs.CurrentColumn = currentColumn;
+            gs.CurrentRow = currentRow;
+            gs.GameDuration = gameDurationInSeconds;
+            gs.PlayerName = Settings.Default.PlayerName;
+            gs.History = history;
+
+            // Save solution symbols
+            gs.Solution = new SymbolValue[solution.Length];
+            for (int i = 0; i < solution.Length; i++)
+            {
+                gs.Solution[i] = solution[i].Value;
+            }
+
+            // Save left grid symbols
+            gs.LeftGrid = new SymbolValue[nrows][];
+            for (int i = 0; i < nrows; i++)
+            {
+                gs.LeftGrid[i] = new SymbolValue[ncols];
+                for (int j = 0; j < ncols; j++)
+                {
+                    var control = ((GridCell)this.gridLeft.GetControlFromPosition(j, i));
+
+                    if (control.SymbolContent == null)
+                        gs.LeftGrid[i][j] = SymbolValue.None;
+                    else
+                        gs.LeftGrid[i][j] = control.SymbolContent.Value;
+                }
+            }
+
+            FileStream file = File.Create(Settings.Default.GameSavePath);
+            XmlSerializer xmlSerializer = new XmlSerializer(gs.GetType());
+
+            xmlSerializer.Serialize(file, gs);
+            file.Close();
+        }
+
+        private void LoadGame()
+        {
+            // Deserialize
+            GameSave gs;
+            XmlSerializer serializer = new XmlSerializer(typeof(GameSave));
+
+            using (Stream reader = new FileStream(Settings.Default.GameSavePath, FileMode.Open))
+            {
+                gs = (GameSave)serializer.Deserialize(reader);
+            }
+
+            this.gridLeft.Controls.Clear();
+            this.gridRight.Controls.Clear();
+
+            GridCell p, q;
+            TableLayoutPanelCellPosition pos;
+
+            // Restore indexes
+            currentColumn = gs.CurrentColumn;
+            currentRow = gs.CurrentRow;
+
+            // Populate left grid
+            for (int i = 0; i < nrows; i++)
+            {
+                if (gs.LeftGrid[i] == null)
+                {
+                    gs.LeftGrid[i] = new SymbolValue[ncols];
+                    for (int k = 0; k < ncols; k++)
+                    {
+                        gs.LeftGrid[i][k] = SymbolValue.None;
+                    }
+                }   
+
+                for (int j = 0; j < ncols; j++)
+                {
+                    if (gs.LeftGrid[i][j] == null || gs.LeftGrid[i][j] == SymbolValue.None)
+                    {
+                        p = new GridCell(EMPTY_LEFT);
+                    }   
+                    else
+                    {
+                        var symbol = new Symbol(gs.LeftGrid[i][j]);
+                        p = new GridCell(symbol);
+                        p.SymbolContent = symbol;
+                    }
+
+                    pos = new TableLayoutPanelCellPosition(j, i);
+                    this.gridLeft.SetCellPosition(p, pos);
+                    this.gridLeft.Controls.Add(p);
+
+                    q = new GridCell(EMPTY_RIGHT);
+                    pos = new TableLayoutPanelCellPosition(j, i);
+                    this.gridRight.SetCellPosition(q, pos);
+                    this.gridRight.Controls.Add(q);
+                    
+                }
+            }
+
+            // Populate solution
+            solution = new Symbol[ncols];
+            for (int i = 0; i < ncols; i++)
+            {
+                solution[i] = new Symbol(gs.Solution[i]);
+            }
+
+            // Add solution to solution grid
+            this.gridSolution.Controls.Clear();
+            GridCell gc;
+            for (int i = 0; i < ncols; i++)
+            {
+                gc = new GridCell(solution[i]);
+                gc.SymbolContent = solution[i];
+                pos = new TableLayoutPanelCellPosition(i, 0);
+                this.gridSolution.SetCellPosition(gc, pos);
+                this.gridSolution.Controls.Add(gc);
+            }
+
+            // Populate time
+            gameDurationInSeconds = gs.GameDuration;
+            this.lblElapsedTime.Text = gameDurationInSeconds.ToString();
+            gameDurationTimer.Start();
+
+            // Populate right grid
+            for (int i = 0; i < currentRow; i++)
+            {
+                // Extract guess from left grid
+                var guess = new Symbol[ncols];
+                for (int j = 0; j < ncols; j++)
+                {
+                    var control = ((GridCell)this.gridLeft.GetControlFromPosition(j, i));
+                    guess[j] = control.SymbolContent;
+                }
+
+                UpdateRightGrid(CheckGuess(guess), i);
+            }
+
+            // Populate player name
+            Settings.Default.PlayerName = gs.PlayerName;
+            this.lblPlayerName.Text = gs.PlayerName;
+
+            // Populate history
+            history = gs.History;
+            UpdateStateComponents();
+
+            // Delete save
+            File.Delete(Settings.Default.GameSavePath);
+        }
+
+        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(!isGameOver)
+                SaveGame();
         }
     }
 }

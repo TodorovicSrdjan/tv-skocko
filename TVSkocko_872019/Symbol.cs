@@ -8,8 +8,10 @@ using TVSkocko_872019.Properties;
 
 namespace TVSkocko_872019
 {
+    [Flags]
     public enum SymbolValue
     {
+        None,
         Clover,
         Heart,
         Jumper,
@@ -18,9 +20,15 @@ namespace TVSkocko_872019
         Tile
     };
 
+    [Serializable]
     public sealed class Symbol : IComparable
     {
-        public SymbolValue Value { get; private set; }
+        public SymbolValue Value { get; set; }
+
+        public Symbol()
+        {
+            
+        }
 
         public Symbol(SymbolValue value)
         {
@@ -58,7 +66,10 @@ namespace TVSkocko_872019
 
         public static Symbol[] Values()
         {
-            var values = (SymbolValue[]) Enum.GetValues(typeof(SymbolValue));
+            var valuesArray = (SymbolValue[]) Enum.GetValues(typeof(SymbolValue));
+            var valuesList = valuesArray.ToList();
+            valuesList.Remove(SymbolValue.None);
+            var values = valuesList.ToArray();
 
             Symbol[] symbols = new Symbol[values.Length];
 

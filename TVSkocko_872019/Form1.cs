@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TVSkocko_872019.Properties;
 
 namespace TVSkocko_872019
 {
@@ -22,6 +24,18 @@ namespace TVSkocko_872019
         {
             // Get player's name
             this.Hide();
+            if (File.Exists(Settings.Default.GameSavePath))
+            {
+                var answer = MessageBox.Show(Resources.GameSaveMsg, Resources.GameSaveTitle, MessageBoxButtons.YesNo);
+                if (answer == DialogResult.Yes)
+                {
+                    StartTheGame();
+                    return;
+                }
+
+                File.Delete(Settings.Default.GameSavePath);
+            }
+
             Form inputForm = new frmPlayerName(this);
             inputForm.Show();
         }

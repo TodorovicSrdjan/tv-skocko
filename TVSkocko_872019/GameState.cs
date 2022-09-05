@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TVSkocko_872019
 {
+    [Serializable]
     public class GameState
     {
         public int IndexOfCurrentRow { get; set; }

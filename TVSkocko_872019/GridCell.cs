@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
-    internal class GridCell : Panel
+    public class GridCell : Panel
     {
         private Symbol symbol;
         public Image Background 

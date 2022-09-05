@@ -155,6 +155,24 @@ namespace TVSkocko_872019.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Da li želite da nastavite prethodnu sesiju?.
+        /// </summary>
+        public static string GameSaveMsg {
+            get {
+                return ResourceManager.GetString("GameSaveMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prethodna sesija.
+        /// </summary>
+        public static string GameSaveTitle {
+            get {
+                return ResourceManager.GetString("GameSaveTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pronašli ste rešenje!.
         /// </summary>
         public static string GameSuccessMsg {

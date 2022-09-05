@@ -82,6 +82,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GameHistory.cs" />
+    <Compile Include="GameSave.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GridCell.cs">
       <SubType>Component</SubType>

@@ -6,10 +6,23 @@ using System.Threading.Tasks;
 
 namespace TVSkocko_872019
 {
+    [Serializable]
     public class GameHistory
     {
-        int iterator = -1;
-        List<GameState> states = new List<GameState>();
+        private int iterator = -1;
+        private List<GameState> states = new List<GameState>();
+
+        public int Iterator 
+        {
+            get => iterator;
+            set => iterator = value;
+        }
+
+        public List<GameState> States
+        {
+            get => states;
+            set => states = value;
+        }
 
         public void AddNewState(GameState state)
         {

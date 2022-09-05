@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -303,7 +303,6 @@ namespace TVSkocko_872019
             this.Controls.Add(this.lblSolution);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnShowSolution);
-            this.Controls.Add(this.btnGuess);
             this.Controls.Add(this.btnRedo);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.gridSymbols);
@@ -317,6 +316,7 @@ namespace TVSkocko_872019
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Skočko";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             this.ResumeLayout(false);
 

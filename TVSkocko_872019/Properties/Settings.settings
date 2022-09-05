@@ -8,5 +8,8 @@
     <Setting Name="ConnectionString" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Data Source=(localdb)\tvskocko;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
     </Setting>
+    <Setting Name="GameSavePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
