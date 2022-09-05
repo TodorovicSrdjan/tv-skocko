@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -38,13 +38,15 @@ namespace TVSkocko_872019
             this.btnNewGame = new System.Windows.Forms.Button();
             this.gridLeft = new System.Windows.Forms.TableLayoutPanel();
             this.gridRight = new System.Windows.Forms.TableLayoutPanel();
-            this.gameDurationTimer = new System.Windows.Forms.Timer(this.components);
             this.btnGuess = new System.Windows.Forms.Button();
             this.gridSolution = new System.Windows.Forms.TableLayoutPanel();
             this.btnShowSolution = new System.Windows.Forms.Button();
             this.lblSolution = new System.Windows.Forms.Label();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.lblPlayerName = new System.Windows.Forms.Label();
+            this.lblTimeText = new System.Windows.Forms.Label();
+            this.lblElapsedTime = new System.Windows.Forms.Label();
+            this.gameDurationTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // gridSymbols
@@ -161,10 +163,6 @@ namespace TVSkocko_872019
             this.gridRight.Size = new System.Drawing.Size(175, 261);
             this.gridRight.TabIndex = 1;
             // 
-            // gameDurationTimer
-            // 
-            this.gameDurationTimer.Enabled = true;
-            // 
             // btnGuess
             // 
             this.btnGuess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(104)))), ((int)(((byte)(35)))));
@@ -260,6 +258,37 @@ namespace TVSkocko_872019
             this.lblPlayerName.TabIndex = 7;
             this.lblPlayerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblTimeText
+            // 
+            this.lblTimeText.BackColor = System.Drawing.Color.Transparent;
+            this.lblTimeText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTimeText.Font = new System.Drawing.Font("DejaVu Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTimeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.lblTimeText.Location = new System.Drawing.Point(230, 205);
+            this.lblTimeText.Name = "lblTimeText";
+            this.lblTimeText.Size = new System.Drawing.Size(73, 27);
+            this.lblTimeText.TabIndex = 8;
+            this.lblTimeText.Text = "Vreme";
+            this.lblTimeText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblElapsedTime
+            // 
+            this.lblElapsedTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblElapsedTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblElapsedTime.Font = new System.Drawing.Font("DejaVu Sans", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblElapsedTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.lblElapsedTime.Location = new System.Drawing.Point(230, 229);
+            this.lblElapsedTime.Name = "lblElapsedTime";
+            this.lblElapsedTime.Size = new System.Drawing.Size(73, 18);
+            this.lblElapsedTime.TabIndex = 9;
+            this.lblElapsedTime.Text = "0";
+            this.lblElapsedTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gameDurationTimer
+            // 
+            this.gameDurationTimer.Interval = 1000;
+            this.gameDurationTimer.Tick += new System.EventHandler(this.gameDurationTimer_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +296,8 @@ namespace TVSkocko_872019
             this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(523, 493);
+            this.Controls.Add(this.lblElapsedTime);
+            this.Controls.Add(this.lblTimeText);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.lblSolution);
@@ -300,12 +331,14 @@ namespace TVSkocko_872019
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnRedo;
         private Button btnNewGame;
-        private Timer gameDurationTimer;
         private Button btnGuess;
         private TableLayoutPanel gridSolution;
         private Button btnShowSolution;
         private Label lblSolution;
         private Button btnMainMenu;
         private Label lblPlayerName;
+        private Label lblTimeText;
+        private Label lblElapsedTime;
+        private Timer gameDurationTimer;
     }
 }

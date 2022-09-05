@@ -28,6 +28,7 @@ namespace TVSkocko_872019
 
         private int currentRow;
         private int currentColumn;
+        private int gameDurationInSeconds;
         private GameHistory history;
         private Symbol[] solution;
 
@@ -55,8 +56,16 @@ namespace TVSkocko_872019
 
         public void InitializeGame()
         {
+            gameDurationInSeconds = 0;
+            gameDurationTimer.Stop();
+            gameDurationTimer.Start();
+
             this.lblSolution.Visible = false;
             this.gridSolution.Visible = false;
+
+            this.lblTimeText.Visible = false;
+            this.lblElapsedTime.Visible = false;
+
             this.gridSymbols.Visible = true;
             this.btnUndo.Visible = true;
             this.btnRedo.Visible = true;
@@ -92,6 +101,8 @@ namespace TVSkocko_872019
                 }
             }
 
+            this.lblTimeText.Visible = true;
+            this.lblElapsedTime.Visible = true;
             this.gridLeft.Visible = true;
             this.gridRight.Visible = true;
             this.Enabled = true;
@@ -302,7 +313,6 @@ namespace TVSkocko_872019
             currentColumn++;
 
             UpdateStateComponents();
-
         }
 
         private void btnGuess_Click(object sender, EventArgs e)
@@ -336,6 +346,7 @@ namespace TVSkocko_872019
                 this.btnShowSolution.Visible = false;
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
+                gameDurationTimer.Stop();
             }
             // Check if player has used all available guess attempts
             else if (currentRow == nrows)
@@ -344,6 +355,7 @@ namespace TVSkocko_872019
                 this.gridSymbols.Visible = false;
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
+                gameDurationTimer.Stop();
             }
         }
 
@@ -354,6 +366,7 @@ namespace TVSkocko_872019
 
         private void btnShowSolution_Click(object sender, EventArgs e)
         {
+            gameDurationTimer.Stop();
             this.btnShowSolution.Visible = false;
             this.gridSymbols.Visible = false;
             this.btnUndo.Visible = false;
@@ -371,6 +384,12 @@ namespace TVSkocko_872019
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
             parentForm.Show();
+        }
+
+        private void gameDurationTimer_Tick(object sender, EventArgs e)
+        {
+            gameDurationInSeconds++;
+            this.lblElapsedTime.Text = gameDurationInSeconds.ToString();
         }
     }
 }
