@@ -185,17 +185,6 @@ namespace TVSkocko_872019
             return guessResult;
         }
 
-        private void Game_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (DialogResult.No == MessageBox.Show(Resources.GameExitWinMsg, Resources.GameExitWinTitle, MessageBoxButtons.YesNo))
-            {
-                e.Cancel = true;
-            }   
-            else
-            {
-                parentForm.Show();
-            }
-        }
         #region Game state managment
         private void RecoverPreviousState(GameState state)
         {
@@ -370,6 +359,17 @@ namespace TVSkocko_872019
             this.btnRedo.Visible = false;
             this.gridSolution.Visible = true;
             this.lblSolution.Visible = true;
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            parentForm.Show();
+            this.Close();
+        }
+
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentForm.Show();
         }
     }
 }

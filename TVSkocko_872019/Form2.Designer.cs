@@ -43,6 +43,7 @@ namespace TVSkocko_872019
             this.gridSolution = new System.Windows.Forms.TableLayoutPanel();
             this.btnShowSolution = new System.Windows.Forms.Button();
             this.lblSolution = new System.Windows.Forms.Label();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gridSymbols
@@ -229,6 +230,22 @@ namespace TVSkocko_872019
             this.lblSolution.Text = "Rešenje";
             this.lblSolution.Visible = false;
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
+            this.btnMainMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMainMenu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(150)))));
+            this.btnMainMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.btnMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainMenu.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
+            this.btnMainMenu.Location = new System.Drawing.Point(333, 381);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(92, 46);
+            this.btnMainMenu.TabIndex = 6;
+            this.btnMainMenu.Text = "Glavni meni";
+            this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +253,7 @@ namespace TVSkocko_872019
             this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(523, 493);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.lblSolution);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnShowSolution);
@@ -252,6 +270,7 @@ namespace TVSkocko_872019
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Skočko";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             this.ResumeLayout(false);
 
         }
@@ -271,5 +290,6 @@ namespace TVSkocko_872019
         private TableLayoutPanel gridSolution;
         private Button btnShowSolution;
         private Label lblSolution;
+        private Button btnMainMenu;
     }
 }
