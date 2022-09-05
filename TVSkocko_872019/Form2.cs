@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,11 +24,14 @@ namespace TVSkocko_872019
 
         private int currentRow;
         private int currentColumn;
+        private GameHistory history;
+        private Symbol[] solution;
 
         public Game(Form parentForm)
         {
             InitializeComponent();
 
+            history = new GameHistory();
             this.parentForm = parentForm;
             
             Button b;
@@ -47,8 +50,8 @@ namespace TVSkocko_872019
         private void InitializeGame()
         {
             this.gridSymbols.Visible = true;
-            this.btnUndo.Visible = false; // TODO true;
-            this.btnRedo.Visible = false; // TODO true;
+            this.btnUndo.Visible = true;
+            this.btnRedo.Visible = true;
 
             currentRow = 0;
             currentColumn = 0;
@@ -174,7 +177,23 @@ namespace TVSkocko_872019
                 parentForm.Show();
             }
         }
+        #region Game state managment
+        private void RecoverPreviousState(GameState state)
+        {
+            currentRow = state.IndexOfCurrentRow;
+            currentColumn = state.IndexOfCurrentColumn;
+        }
+        
+        private GameState SaveGameState(Symbol symbol)
+        {
+            GameState state = new GameState();
+            state.IndexOfCurrentRow = currentRow;
+            state.IndexOfCurrentColumn = currentColumn;
+            state.ChosenSymbol = symbol;
 
+            return state;
+        }
+        
         private void UpdateStateComponents()
         {
             if (history.HasPrevious())
@@ -194,10 +213,44 @@ namespace TVSkocko_872019
                 this.btnGuess.Visible = false;
         }
 
+
+        private void UndoMove()
+        {
+            RecoverPreviousState(history.SelectPreviousState());
+
+            // Remove symbol content
+            var gc = (GridCell)this.gridLeft.GetControlFromPosition(currentColumn, currentRow);
+            gc.SymbolContent = null;
+            gc.Background = EMPTY_LEFT;
+            gc.Update();
+
+            UpdateStateComponents();
+        }
+        private void RedoMove()
+        {
+            var nextState = history.SelectNextState();
+            RecoverPreviousState(nextState);
+
+            // Remove symbol content
+            var gc = (GridCell)this.gridLeft.GetControlFromPosition(currentColumn, currentRow);
+            gc.SymbolContent = nextState.ChosenSymbol;
+            gc.Background = nextState.ChosenSymbol;
+            gc.Update();
+            currentColumn++;
+
+            UpdateStateComponents();
+        }
+
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            
+            UndoMove();
         }
+
+        private void btnRedo_Click(object sender, EventArgs e)
+        {
+            RedoMove();
+        }
+        #endregion
 
         private void UpdateRightGrid(GuessResultValue[] guessResultValues)
         {
@@ -275,7 +328,7 @@ namespace TVSkocko_872019
                 this.btnRedo.Visible = false;
             }
         }
-        
+
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             InitializeGame();

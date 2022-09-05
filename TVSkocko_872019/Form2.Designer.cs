@@ -38,6 +38,7 @@ namespace TVSkocko_872019
             this.btnNewGame = new System.Windows.Forms.Button();
             this.gridLeft = new System.Windows.Forms.TableLayoutPanel();
             this.gridRight = new System.Windows.Forms.TableLayoutPanel();
+            this.gameDurationTimer = new System.Windows.Forms.Timer(this.components);
             this.btnGuess = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -136,6 +137,10 @@ namespace TVSkocko_872019
             this.gridRight.Size = new System.Drawing.Size(173, 259);
             this.gridRight.TabIndex = 1;
             // 
+            // gameDurationTimer
+            // 
+            this.gameDurationTimer.Enabled = true;
+            // 
             // btnNewGame
             // 
             this.btnNewGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
@@ -206,6 +211,7 @@ namespace TVSkocko_872019
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnRedo;
         private Button btnNewGame;
+        private Timer gameDurationTimer;
         private Button btnGuess;
     }
 }
