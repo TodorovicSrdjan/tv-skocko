@@ -57,6 +57,7 @@ namespace TVSkocko_872019
         public void InitializeGame()
         {
             gameDurationInSeconds = 0;
+            this.lblElapsedTime.Text = gameDurationInSeconds.ToString();
             gameDurationTimer.Stop();
             gameDurationTimer.Start();
 
