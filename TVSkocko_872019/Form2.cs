@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +38,7 @@ namespace TVSkocko_872019
             history = new GameHistory();
             this.parentForm = parentForm;
             
+            // Add grid of symbol buttons
             Button b;
             TableLayoutPanelCellPosition pos;
             for (int i = 0; i < SYMBOLS.Length; i++)
@@ -53,6 +54,8 @@ namespace TVSkocko_872019
 
         private void InitializeGame()
         {
+            this.lblSolution.Visible = false;
+            this.gridSolution.Visible = false;
             this.gridSymbols.Visible = true;
             this.btnUndo.Visible = true;
             this.btnRedo.Visible = true;
@@ -105,6 +108,17 @@ namespace TVSkocko_872019
             }
 
             Console.WriteLine($"Created solution for this game is: {solutionStr}");
+
+            // Add solution to solution grid
+            GridCell gc;
+            TableLayoutPanelCellPosition pos;
+            for (int i = 0; i < ncols; i++)
+            {
+                gc = new GridCell(solution[i]);
+                pos = new TableLayoutPanelCellPosition(i, 0);
+                this.gridSolution.SetCellPosition(gc, pos);
+                this.gridSolution.Controls.Add(gc);
+            }
 
             return solution;
         }
@@ -344,6 +358,15 @@ namespace TVSkocko_872019
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             InitializeGame();
+        }
+
+        private void btnShowSolution_Click(object sender, EventArgs e)
+        {
+            this.gridSymbols.Visible = false;
+            this.btnUndo.Visible = false;
+            this.btnRedo.Visible = false;
+            this.gridSolution.Visible = true;
+            this.lblSolution.Visible = true;
         }
     }
 }

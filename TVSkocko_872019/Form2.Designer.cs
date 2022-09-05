@@ -40,6 +40,9 @@ namespace TVSkocko_872019
             this.gridRight = new System.Windows.Forms.TableLayoutPanel();
             this.gameDurationTimer = new System.Windows.Forms.Timer(this.components);
             this.btnGuess = new System.Windows.Forms.Button();
+            this.gridSolution = new System.Windows.Forms.TableLayoutPanel();
+            this.btnShowSolution = new System.Windows.Forms.Button();
+            this.lblSolution = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gridSymbols
@@ -52,7 +55,7 @@ namespace TVSkocko_872019
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.gridSymbols.Location = new System.Drawing.Point(141, 15);
+            this.gridSymbols.Location = new System.Drawing.Point(142, 16);
             this.gridSymbols.Name = "gridSymbols";
             this.gridSymbols.RowCount = 1;
             this.gridSymbols.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
@@ -95,6 +98,23 @@ namespace TVSkocko_872019
             this.btnRedo.UseVisualStyleBackColor = false;
             this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
+            // btnNewGame
+            // 
+            this.btnNewGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
+            this.btnNewGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(150)))));
+            this.btnNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewGame.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
+            this.btnNewGame.Location = new System.Drawing.Point(142, 391);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(92, 46);
+            this.btnNewGame.TabIndex = 4;
+            this.btnNewGame.Text = "Nova igra";
+            this.btnNewGame.UseVisualStyleBackColor = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
+            // 
             // gridLeft
             // 
             this.gridLeft.BackgroundImage = global::TVSkocko_872019.Properties.Resources.EmptyLeft;
@@ -103,7 +123,7 @@ namespace TVSkocko_872019
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.Location = new System.Drawing.Point(50, 100);
             this.gridLeft.Name = "gridLeft";
             this.gridLeft.RowCount = 6;
@@ -124,7 +144,7 @@ namespace TVSkocko_872019
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.Location = new System.Drawing.Point(307, 100);
             this.gridRight.Name = "gridRight";
             this.gridRight.RowCount = 6;
@@ -140,23 +160,6 @@ namespace TVSkocko_872019
             // gameDurationTimer
             // 
             this.gameDurationTimer.Enabled = true;
-            // 
-            // btnNewGame
-            // 
-            this.btnNewGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
-            this.btnNewGame.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewGame.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(150)))));
-            this.btnNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
-            this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewGame.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
-            this.btnNewGame.Location = new System.Drawing.Point(222, 377);
-            this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(92, 36);
-            this.btnNewGame.TabIndex = 4;
-            this.btnNewGame.Text = "Nova igra";
-            this.btnNewGame.UseVisualStyleBackColor = false;
-            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // btnGuess
             // 
@@ -176,6 +179,53 @@ namespace TVSkocko_872019
             this.btnGuess.Visible = false;
             this.btnGuess.Click += new System.EventHandler(this.btnGuess_Click);
             // 
+            // gridSolution
+            // 
+            this.gridSolution.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gridSolution.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.gridSolution.ColumnCount = 4;
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.gridSolution.Location = new System.Drawing.Point(179, 49);
+            this.gridSolution.Name = "gridSolution";
+            this.gridSolution.RowCount = 1;
+            this.gridSolution.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.gridSolution.Size = new System.Drawing.Size(172, 44);
+            this.gridSolution.TabIndex = 1;
+            this.gridSolution.Visible = false;
+            // 
+            // btnShowSolution
+            // 
+            this.btnShowSolution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
+            this.btnShowSolution.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowSolution.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(150)))));
+            this.btnShowSolution.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.btnShowSolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowSolution.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowSolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
+            this.btnShowSolution.Location = new System.Drawing.Point(296, 391);
+            this.btnShowSolution.Name = "btnShowSolution";
+            this.btnShowSolution.Size = new System.Drawing.Size(92, 46);
+            this.btnShowSolution.TabIndex = 5;
+            this.btnShowSolution.Text = "Prikaži rešenje";
+            this.btnShowSolution.UseVisualStyleBackColor = false;
+            this.btnShowSolution.Click += new System.EventHandler(this.btnShowSolution_Click);
+            // 
+            // lblSolution
+            // 
+            this.lblSolution.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSolution.Font = new System.Drawing.Font("DejaVu Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.lblSolution.Location = new System.Drawing.Point(191, 13);
+            this.lblSolution.Name = "lblSolution";
+            this.lblSolution.Size = new System.Drawing.Size(145, 34);
+            this.lblSolution.TabIndex = 0;
+            this.lblSolution.Text = "Rešenje";
+            this.lblSolution.Visible = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,19 +233,22 @@ namespace TVSkocko_872019
             this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(523, 493);
-            this.Controls.Add(this.btnGuess);
+            this.Controls.Add(this.lblSolution);
             this.Controls.Add(this.btnNewGame);
+            this.Controls.Add(this.btnShowSolution);
+            this.Controls.Add(this.btnGuess);
             this.Controls.Add(this.btnRedo);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.gridSymbols);
             this.Controls.Add(this.gridRight);
             this.Controls.Add(this.gridLeft);
+            this.Controls.Add(this.gridSolution);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Skočko:  by Robin Alciatore)    Erik Satie - Gymnopaedia 1 (performed";
+            this.Text = "Skočko: iatore)    Erik Satie - Gymnopaedia 1 (performed by Robin Alc";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.ResumeLayout(false);
 
@@ -213,5 +266,8 @@ namespace TVSkocko_872019
         private Button btnNewGame;
         private Timer gameDurationTimer;
         private Button btnGuess;
+        private TableLayoutPanel gridSolution;
+        private Button btnShowSolution;
+        private Label lblSolution;
     }
 }
