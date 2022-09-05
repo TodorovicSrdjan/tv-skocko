@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,6 +59,7 @@ namespace TVSkocko_872019
             this.gridSymbols.Visible = true;
             this.btnUndo.Visible = true;
             this.btnRedo.Visible = true;
+            this.btnShowSolution.Visible = true;
 
             currentRow = 0;
             currentColumn = 0;
@@ -342,6 +343,7 @@ namespace TVSkocko_872019
             {
                 MessageBox.Show(Resources.GameSuccessMsg, Resources.GameSuccessTitle, MessageBoxButtons.OK);
                 this.gridSymbols.Visible = false;
+                this.btnShowSolution.Visible = false;
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
             }
@@ -362,6 +364,7 @@ namespace TVSkocko_872019
 
         private void btnShowSolution_Click(object sender, EventArgs e)
         {
+            this.btnShowSolution.Visible = false;
             this.gridSymbols.Visible = false;
             this.btnUndo.Visible = false;
             this.btnRedo.Visible = false;
