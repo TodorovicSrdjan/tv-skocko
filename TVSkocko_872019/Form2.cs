@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -323,6 +323,7 @@ namespace TVSkocko_872019
             history.Clear();
             UpdateStateComponents();
 
+            // Check if player guessed correctly
             if (ncols == guessResult.Count(checkIfSolutionIsFound))
             {
                 MessageBox.Show(Resources.GameSuccessMsg, Resources.GameSuccessTitle, MessageBoxButtons.OK);
@@ -330,9 +331,8 @@ namespace TVSkocko_872019
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
             }
-
             // Check if player has used all available guess attempts
-            if (currentRow == nrows)
+            else if (currentRow == nrows)
             {
                 MessageBox.Show(Resources.EndGameMaxAttemptsMsg, Resources.EndGameMaxAttemptsTitle, MessageBoxButtons.OK);
                 this.gridSymbols.Visible = false;
