@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -30,6 +30,7 @@ namespace TVSkocko_872019
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.gridSymbols = new System.Windows.Forms.TableLayoutPanel();
             this.btnUndo = new System.Windows.Forms.Button();
@@ -37,7 +38,7 @@ namespace TVSkocko_872019
             this.btnNewGame = new System.Windows.Forms.Button();
             this.gridLeft = new System.Windows.Forms.TableLayoutPanel();
             this.gridRight = new System.Windows.Forms.TableLayoutPanel();
-
+            this.btnGuess = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gridSymbols
@@ -50,7 +51,7 @@ namespace TVSkocko_872019
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.gridSymbols.Location = new System.Drawing.Point(141, 37);
+            this.gridSymbols.Location = new System.Drawing.Point(141, 15);
             this.gridSymbols.Name = "gridSymbols";
             this.gridSymbols.RowCount = 1;
             this.gridSymbols.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
@@ -61,6 +62,7 @@ namespace TVSkocko_872019
             // 
             this.btnUndo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
             this.btnUndo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUndo.Enabled = false;
             this.btnUndo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(144)))));
             this.btnUndo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
             this.btnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -78,6 +80,7 @@ namespace TVSkocko_872019
             // 
             this.btnRedo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(190)))), ((int)(((byte)(159)))));
             this.btnRedo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRedo.Enabled = false;
             this.btnRedo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(172)))), ((int)(((byte)(144)))));
             this.btnRedo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
             this.btnRedo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -89,6 +92,7 @@ namespace TVSkocko_872019
             this.btnRedo.TabIndex = 3;
             this.btnRedo.Text = "Vrati poslednji odabir";
             this.btnRedo.UseVisualStyleBackColor = false;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // gridLeft
             // 
@@ -98,7 +102,7 @@ namespace TVSkocko_872019
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.gridLeft.Location = new System.Drawing.Point(50, 100);
             this.gridLeft.Name = "gridLeft";
             this.gridLeft.RowCount = 6;
@@ -112,14 +116,14 @@ namespace TVSkocko_872019
             this.gridLeft.TabIndex = 0;
             // 
             // gridRight
-            //
+            // 
             this.gridRight.BackgroundImage = global::TVSkocko_872019.Properties.Resources.EmptyRight;
             this.gridRight.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.gridRight.ColumnCount = 4;
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.gridRight.Location = new System.Drawing.Point(307, 100);
             this.gridRight.Name = "gridRight";
             this.gridRight.RowCount = 6;
@@ -149,6 +153,24 @@ namespace TVSkocko_872019
             this.btnNewGame.UseVisualStyleBackColor = false;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
+            // btnGuess
+            // 
+            this.btnGuess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(104)))), ((int)(((byte)(35)))));
+            this.btnGuess.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuess.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(80)))), ((int)(((byte)(27)))));
+            this.btnGuess.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
+            this.btnGuess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuess.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(175)))), ((int)(((byte)(78)))));
+            this.btnGuess.Location = new System.Drawing.Point(222, 64);
+            this.btnGuess.Name = "btnGuess";
+            this.btnGuess.Size = new System.Drawing.Size(82, 30);
+            this.btnGuess.TabIndex = 5;
+            this.btnGuess.Text = "Pokušaj";
+            this.btnGuess.UseVisualStyleBackColor = false;
+            this.btnGuess.Visible = false;
+            this.btnGuess.Click += new System.EventHandler(this.btnGuess_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +178,7 @@ namespace TVSkocko_872019
             this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(523, 493);
+            this.Controls.Add(this.btnGuess);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.btnRedo);
             this.Controls.Add(this.btnUndo);
@@ -183,5 +206,6 @@ namespace TVSkocko_872019
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnRedo;
         private Button btnNewGame;
+        private Button btnGuess;
     }
 }

@@ -18,7 +18,7 @@ namespace TVSkocko_872019
         Tile
     };
 
-    public sealed class Symbol
+    public sealed class Symbol : IComparable
     {
         public SymbolValue Value { get; private set; }
 
@@ -34,6 +34,9 @@ namespace TVSkocko_872019
 
         public static Bitmap ConvertToImage(Symbol symbol)
         {
+            if (symbol == null)
+                return null;
+
             switch (symbol.Value)
             {
                 case SymbolValue.Clover:
@@ -75,6 +78,15 @@ namespace TVSkocko_872019
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+        public int CompareTo(object obj)
+        {
+            Symbol other = obj as Symbol;
+            if (other == null)
+                throw new ArgumentException("Passed object is not an instance of the type Symbol");
+
+            return this.Value.CompareTo(other.Value);
         }
     }
 }

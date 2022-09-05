@@ -176,4 +176,10 @@
   <data name="GameExitWinTitle" xml:space="preserve">
     <value>Izlazak</value>
   </data>
+  <data name="EndGameMaxAttemptsMsg" xml:space="preserve">
+    <value>Iskoristili ste sve pokušaje bez pronalaska pravog rešenja. </value>
+  </data>
+  <data name="EndGameMaxAttemptsTitle" xml:space="preserve">
+    <value>Poraz</value>
+  </data>
 </root>

@@ -119,6 +119,24 @@ namespace TVSkocko_872019.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Iskoristili ste sve pokušaje bez pronalaska pravog rešenja. .
+        /// </summary>
+        public static string EndGameMaxAttemptsMsg {
+            get {
+                return ResourceManager.GetString("EndGameMaxAttemptsMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Poraz.
+        /// </summary>
+        public static string EndGameMaxAttemptsTitle {
+            get {
+                return ResourceManager.GetString("EndGameMaxAttemptsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Da li želite da napustite trenutnu igru?.
         /// </summary>
         public static string GameExitWinMsg {

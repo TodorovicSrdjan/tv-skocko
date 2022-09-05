@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +12,7 @@ using static TVSkocko_872019.SymbolValue;
 
 namespace TVSkocko_872019
 {
+    public enum GuessResultValue { MATCH, SEMI_MATCH, MISMATCH };
     public partial class Game : FormWithBackgroundMusic
     {
         private readonly Form parentForm;
@@ -45,8 +46,13 @@ namespace TVSkocko_872019
 
         private void InitializeGame()
         {
+            this.gridSymbols.Visible = true;
+            this.btnUndo.Visible = false; // TODO true;
+            this.btnRedo.Visible = false; // TODO true;
+
             currentRow = 0;
             currentColumn = 0;
+            solution = CreateSolution();
 
             this.Enabled = false;
             this.gridLeft.Visible = false;
@@ -79,6 +85,84 @@ namespace TVSkocko_872019
             this.Enabled = true;
         }
 
+        private Symbol[] CreateSolution()
+        {
+            Symbol[] solution = new Symbol[ncols];
+            Random r = new Random();
+            String solutionStr = "";
+
+            for (int i = 0; i < ncols; i++)
+            {
+                solution[i] = SYMBOLS[r.Next(SYMBOLS.Length)];
+                solutionStr += $"{solution[i]} ";
+            }
+
+            Console.WriteLine($"Created solution for this game is: {solutionStr}");
+
+            return solution;
+        }
+
+        private GuessResultValue[] CheckGuess(Symbol[] guess)
+        {
+            int numOfSemiMatches = 0;
+            int guessResultCurrIndex = 0;
+            GuessResultValue[] guessResult = new GuessResultValue[ncols];
+            String guessResultStr = "";
+
+            List<Symbol> mismatchGuess = new List<Symbol>();
+            List<Symbol> mismatchSolution = new List<Symbol>();
+
+            for (int i = 0; i < guess.Length; i++)
+            {
+                // Check if i-th symbol is exect match
+                if (guess[i].Equals(solution[i]))
+                {
+                    guessResult[guessResultCurrIndex++] = GuessResultValue.MATCH;
+                    guessResultStr += $"{GuessResultValue.MATCH} ";
+                }
+                else
+                {
+                    mismatchGuess.Add(guess[i]);
+                    mismatchSolution.Add(solution[i]);
+                }
+            }
+
+            mismatchGuess.Sort();
+            mismatchSolution.Sort();
+
+            for (int g = 0, s = 0; g < mismatchGuess.Count && s < mismatchSolution.Count; )
+            {
+                if ( -1 == mismatchGuess[g].CompareTo(mismatchSolution[s]))
+                    g++;
+                else if (1 == mismatchGuess[g].CompareTo(mismatchSolution[s]))
+                    s++;
+                else
+                {
+                    g++;
+                    s++;
+                    numOfSemiMatches++;
+                }
+            }
+
+            // Fill array with occurences of semi_match
+            for (int i = guessResultCurrIndex; i < guessResultCurrIndex+numOfSemiMatches; i++)
+            {
+                guessResult[i] = GuessResultValue.SEMI_MATCH;
+                guessResultStr += $"{GuessResultValue.SEMI_MATCH} ";
+            }
+
+            // Fill the rest of the array with mismatch values
+            for (int i = guessResultCurrIndex + numOfSemiMatches; i < ncols; i++)
+            {
+                guessResult[i] = GuessResultValue.MISMATCH;
+                guessResultStr += $"{GuessResultValue.MISMATCH} ";
+            }
+
+            Console.WriteLine($"Guess result: {guessResultStr}");
+
+            return guessResult;
+        }
+
         private void Game_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult.No == MessageBox.Show(Resources.GameExitWinMsg, Resources.GameExitWinTitle, MessageBoxButtons.YesNo))
@@ -91,33 +175,107 @@ namespace TVSkocko_872019
             }
         }
 
+        private void UpdateStateComponents()
+        {
+            if (history.HasPrevious())
+                this.btnUndo.Enabled = true;
+            else
+                this.btnUndo.Enabled = false;
+
+            if (history.HasNext())
+                this.btnRedo.Enabled = true;
+            else
+                this.btnRedo.Enabled = false;
+
+            // Check if row is populated
+            if (currentColumn == ncols)
+                this.btnGuess.Visible = true;
+            else
+                this.btnGuess.Visible = false;
+        }
+
         private void btnUndo_Click(object sender, EventArgs e)
         {
             
-            }
+        }
 
-        internal void MakeMove(Symbol symbol)
+        private void UpdateRightGrid(GuessResultValue[] guessResultValues)
         {
-            Console.WriteLine($"Chosen symbol: {symbol}");
-            if(currentColumn == ncols)
+            for (int i = 0; i < ncols; i++)
             {
-                currentColumn = 0;
-                currentRow++;
-            }
+                var gc = (GridCell)this.gridRight.GetControlFromPosition(i, currentRow);
 
-            if(currentRow < nrows)
-            {
-                GridCell gc = (GridCell) this.gridLeft.GetControlFromPosition(currentColumn, currentRow);
+                switch (guessResultValues[i])
+                {
+                    case GuessResultValue.MATCH:
+                        gc.Background = Resources.Match;
+                        break;
+                    case GuessResultValue.SEMI_MATCH:
+                        gc.Background = Resources.SemiMatch;
+                        break;
+                    case GuessResultValue.MISMATCH:
+                        break;
+                }
 
-                
-
-                gc.Background = symbol;
                 gc.Update();
-
-                currentColumn++;
             }
         }
 
+        internal void MakeMove(Symbol symbol)
+        {
+            // Check if it's last move in the row
+            if (currentColumn == ncols)
+                return;
+
+            this.btnUndo.Enabled = true;
+            Console.WriteLine($"Chosen symbol for position ({currentRow},{currentColumn}): {symbol}");
+
+            // Make a move
+            var gc = (GridCell)this.gridLeft.GetControlFromPosition(currentColumn, currentRow);
+            gc.SymbolContent = symbol;
+            gc.Background = symbol;
+            gc.Update();
+            history.AddNewState(SaveGameState(symbol));
+
+            currentColumn++;
+
+            UpdateStateComponents();
+
+        }
+
+        private void btnGuess_Click(object sender, EventArgs e)
+        {
+            // Guess is made //
+
+            // Extract guess from left grid
+            var guess = new Symbol[ncols];
+            for (int i = 0; i < ncols; i++)
+            {
+                var control = ((GridCell)this.gridLeft.GetControlFromPosition(i, currentRow));
+                guess[i] = control.SymbolContent;
+            }
+
+            // Check player's guess
+            var guessResult = CheckGuess(guess);
+
+            UpdateRightGrid(guessResult);
+
+            currentColumn = 0;
+            currentRow++;
+
+            history.Clear();
+            UpdateStateComponents();
+
+            // Check if player has used all available guess attempts
+            if (currentRow == nrows)
+            {
+                MessageBox.Show(Resources.EndGameMaxAttemptsMsg, Resources.EndGameMaxAttemptsTitle, MessageBoxButtons.OK);
+                this.gridSymbols.Visible = false;
+                this.btnUndo.Visible = false;
+                this.btnRedo.Visible = false;
+            }
+        }
+        
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             InitializeGame();

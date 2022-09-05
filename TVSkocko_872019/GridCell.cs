@@ -10,11 +10,18 @@ namespace TVSkocko_872019
 {
     internal class GridCell : Panel
     {
+        private Symbol symbol;
         public Image Background 
         { 
             get { return this.BackgroundImage; }
-            set { this.BackgroundImage = value; } 
+            set { this.BackgroundImage = value; }
         }
+        public Symbol SymbolContent
+        {
+            get { return this.symbol; }
+            set { this.symbol = value; }
+        }
+
         public int CellSize { get; private set; } = 40;
 
         public GridCell(Image backgroundImage)
