@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -44,6 +44,7 @@ namespace TVSkocko_872019
             this.btnShowSolution = new System.Windows.Forms.Button();
             this.lblSolution = new System.Windows.Forms.Label();
             this.btnMainMenu = new System.Windows.Forms.Button();
+            this.lblPlayerName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gridSymbols
@@ -246,6 +247,19 @@ namespace TVSkocko_872019
             this.btnMainMenu.Text = "Glavni meni";
             this.btnMainMenu.UseVisualStyleBackColor = false;
             this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
+            // lblPlayerName
+            // 
+            this.lblPlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlayerName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblPlayerName.Font = new System.Drawing.Font("DejaVu Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(175)))), ((int)(((byte)(78)))));
+            this.lblPlayerName.Location = new System.Drawing.Point(50, 453);
+            this.lblPlayerName.Name = "lblPlayerName";
+            this.lblPlayerName.Size = new System.Drawing.Size(430, 40);
+            this.lblPlayerName.TabIndex = 7;
+            this.lblPlayerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +267,7 @@ namespace TVSkocko_872019
             this.BackgroundImage = global::TVSkocko_872019.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(523, 493);
+            this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.lblSolution);
             this.Controls.Add(this.btnNewGame);
@@ -291,5 +306,6 @@ namespace TVSkocko_872019
         private Button btnShowSolution;
         private Label lblSolution;
         private Button btnMainMenu;
+        private Label lblPlayerName;
     }
 }

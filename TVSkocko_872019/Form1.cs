@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +20,14 @@ namespace TVSkocko_872019
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            // Get player's name
             this.Hide();
+            Form inputForm = new frmPlayerName(this);
+            inputForm.Show();
+        }
+
+        public void StartTheGame()
+        {
             var gameForm = new Game(this);
             gameForm.Show();
         }

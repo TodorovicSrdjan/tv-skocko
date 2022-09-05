@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +37,7 @@ namespace TVSkocko_872019
 
             history = new GameHistory();
             this.parentForm = parentForm;
+            this.lblPlayerName.Text = Settings.Default.PlayerName;
             
             // Add grid of symbol buttons
             Button b;
@@ -52,7 +53,7 @@ namespace TVSkocko_872019
             InitializeGame();
         }
 
-        private void InitializeGame()
+        public void InitializeGame()
         {
             this.lblSolution.Visible = false;
             this.gridSolution.Visible = false;
