@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -130,11 +130,13 @@ namespace TVSkocko_872019
             Console.WriteLine($"Created solution for this game is: {solutionStr}");
 
             // Add solution to solution grid
+            this.gridSolution.Controls.Clear();
             GridCell gc;
             TableLayoutPanelCellPosition pos;
             for (int i = 0; i < ncols; i++)
             {
                 gc = new GridCell(solution[i]);
+                gc.SymbolContent = solution[i];
                 pos = new TableLayoutPanelCellPosition(i, 0);
                 this.gridSolution.SetCellPosition(gc, pos);
                 this.gridSolution.Controls.Add(gc);
@@ -153,10 +155,10 @@ namespace TVSkocko_872019
             List<Symbol> mismatchGuess = new List<Symbol>();
             List<Symbol> mismatchSolution = new List<Symbol>();
 
-            for (int i = 0; i < guess.Length; i++)
+            for (int i = 0; i < ncols; i++)
             {
                 // Check if i-th symbol is exect match
-                if (guess[i].Equals(solution[i]))
+                if (0 == guess[i].CompareTo(solution[i]))
                 {
                     guessResult[guessResultCurrIndex++] = GuessResultValue.MATCH;
                     guessResultStr += $"{GuessResultValue.MATCH} ";
