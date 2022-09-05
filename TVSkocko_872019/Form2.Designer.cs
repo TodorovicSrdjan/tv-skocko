@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -172,7 +172,7 @@ namespace TVSkocko_872019
             this.btnGuess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuess.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(175)))), ((int)(((byte)(78)))));
-            this.btnGuess.Location = new System.Drawing.Point(225, 64);
+            this.btnGuess.Location = new System.Drawing.Point(225, 63);
             this.btnGuess.Name = "btnGuess";
             this.btnGuess.Size = new System.Drawing.Size(82, 30);
             this.btnGuess.TabIndex = 5;
@@ -309,6 +309,7 @@ namespace TVSkocko_872019
             this.Controls.Add(this.gridSymbols);
             this.Controls.Add(this.gridRight);
             this.Controls.Add(this.gridLeft);
+            this.Controls.Add(this.btnGuess);
             this.Controls.Add(this.gridSolution);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

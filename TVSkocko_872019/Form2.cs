@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -378,6 +378,10 @@ namespace TVSkocko_872019
                 this.btnUndo.Visible = false;
                 this.btnRedo.Visible = false;
 
+                this.btnShowSolution.Visible = false;
+                this.gridSolution.Visible = true;
+                this.lblSolution.Visible = true;
+
                 databaseUtil.SavePlayerScore(CreatePlayerScore());
             }
         }
@@ -398,6 +402,7 @@ namespace TVSkocko_872019
             this.gridSymbols.Visible = false;
             this.btnUndo.Visible = false;
             this.btnRedo.Visible = false;
+            this.btnGuess.Visible = false;
             this.gridSolution.Visible = true;
             this.lblSolution.Visible = true;
 
