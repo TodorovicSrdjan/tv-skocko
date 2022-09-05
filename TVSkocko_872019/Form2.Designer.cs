@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace TVSkocko_872019
 {
@@ -55,7 +55,7 @@ namespace TVSkocko_872019
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.gridSymbols.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.gridSymbols.Location = new System.Drawing.Point(142, 16);
+            this.gridSymbols.Location = new System.Drawing.Point(143, 16);
             this.gridSymbols.Name = "gridSymbols";
             this.gridSymbols.RowCount = 1;
             this.gridSymbols.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
@@ -107,7 +107,7 @@ namespace TVSkocko_872019
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewGame.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
-            this.btnNewGame.Location = new System.Drawing.Point(142, 391);
+            this.btnNewGame.Location = new System.Drawing.Point(111, 381);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(92, 46);
             this.btnNewGame.TabIndex = 4;
@@ -120,12 +120,13 @@ namespace TVSkocko_872019
             this.gridLeft.BackgroundImage = global::TVSkocko_872019.Properties.Resources.EmptyLeft;
             this.gridLeft.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.gridLeft.ColumnCount = 4;
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gridLeft.Location = new System.Drawing.Point(50, 100);
             this.gridLeft.Name = "gridLeft";
+            this.gridLeft.Padding = new System.Windows.Forms.Padding(1);
             this.gridLeft.RowCount = 6;
             this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -133,7 +134,7 @@ namespace TVSkocko_872019
             this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridLeft.Size = new System.Drawing.Size(173, 259);
+            this.gridLeft.Size = new System.Drawing.Size(175, 261);
             this.gridLeft.TabIndex = 0;
             // 
             // gridRight
@@ -141,12 +142,13 @@ namespace TVSkocko_872019
             this.gridRight.BackgroundImage = global::TVSkocko_872019.Properties.Resources.EmptyRight;
             this.gridRight.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.gridRight.ColumnCount = 4;
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gridRight.Location = new System.Drawing.Point(307, 100);
             this.gridRight.Name = "gridRight";
+            this.gridRight.Padding = new System.Windows.Forms.Padding(1);
             this.gridRight.RowCount = 6;
             this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -154,7 +156,7 @@ namespace TVSkocko_872019
             this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.gridRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridRight.Size = new System.Drawing.Size(173, 259);
+            this.gridRight.Size = new System.Drawing.Size(175, 261);
             this.gridRight.TabIndex = 1;
             // 
             // gameDurationTimer
@@ -170,7 +172,7 @@ namespace TVSkocko_872019
             this.btnGuess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuess.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(175)))), ((int)(((byte)(78)))));
-            this.btnGuess.Location = new System.Drawing.Point(222, 64);
+            this.btnGuess.Location = new System.Drawing.Point(225, 64);
             this.btnGuess.Name = "btnGuess";
             this.btnGuess.Size = new System.Drawing.Size(82, 30);
             this.btnGuess.TabIndex = 5;
@@ -184,15 +186,16 @@ namespace TVSkocko_872019
             this.gridSolution.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gridSolution.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.gridSolution.ColumnCount = 4;
-            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.gridSolution.Location = new System.Drawing.Point(179, 49);
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridSolution.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.gridSolution.Location = new System.Drawing.Point(179, 50);
             this.gridSolution.Name = "gridSolution";
+            this.gridSolution.Padding = new System.Windows.Forms.Padding(1);
             this.gridSolution.RowCount = 1;
-            this.gridSolution.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.gridSolution.Size = new System.Drawing.Size(172, 44);
+            this.gridSolution.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.gridSolution.Size = new System.Drawing.Size(175, 46);
             this.gridSolution.TabIndex = 1;
             this.gridSolution.Visible = false;
             // 
@@ -205,7 +208,7 @@ namespace TVSkocko_872019
             this.btnShowSolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowSolution.Font = new System.Drawing.Font("DejaVu Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowSolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(125)))), ((int)(((byte)(120)))));
-            this.btnShowSolution.Location = new System.Drawing.Point(296, 391);
+            this.btnShowSolution.Location = new System.Drawing.Point(221, 381);
             this.btnShowSolution.Name = "btnShowSolution";
             this.btnShowSolution.Size = new System.Drawing.Size(92, 46);
             this.btnShowSolution.TabIndex = 5;
@@ -219,7 +222,7 @@ namespace TVSkocko_872019
             this.lblSolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSolution.Font = new System.Drawing.Font("DejaVu Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSolution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(44)))), ((int)(((byte)(41)))));
-            this.lblSolution.Location = new System.Drawing.Point(191, 13);
+            this.lblSolution.Location = new System.Drawing.Point(194, 12);
             this.lblSolution.Name = "lblSolution";
             this.lblSolution.Size = new System.Drawing.Size(145, 34);
             this.lblSolution.TabIndex = 0;
@@ -248,8 +251,7 @@ namespace TVSkocko_872019
             this.MaximizeBox = false;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Skočko: iatore)    Erik Satie - Gymnopaedia 1 (performed by Robin Alc";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
+            this.Text = "Skočko";
             this.ResumeLayout(false);
 
         }
