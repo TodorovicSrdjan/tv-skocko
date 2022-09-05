@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ namespace TVSkocko_872019
 
         public FormWithBackgroundMusic()
         {
-            songInfoInWindowTitle = $"{Resources.Background}    ";
+            songInfoInWindowTitle = $"{Resources.BackgroundSongInfo}    ";
             this.Text = $"{Resources.WindowTitle}: {songInfoInWindowTitle}";
             InitializeTimer();
         }
